@@ -3,6 +3,7 @@ package me.xarta.xsystemmsgeditor;
 import com.mojang.logging.LogUtils;
 import me.xarta.xsystemmsgeditor.config.ConfigHandler;
 import me.xarta.xsystemmsgeditor.event.ServerShutdownHandler;
+import me.xarta.xsystemmsgeditor.event.UnknownCommandHandler;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
@@ -28,7 +29,7 @@ public class XSystemMSGEditor {
         );
 
         NeoForge.EVENT_BUS.register(new ServerShutdownHandler()); // Register event handler
-
+        NeoForge.EVENT_BUS.register(new UnknownCommandHandler());
         LOGGER.info("xSystemMSGEditor is on."); // Print success message
     }
 }

@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "me.xarta.xsystemmsgeditor.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "CommandSourceStackMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
