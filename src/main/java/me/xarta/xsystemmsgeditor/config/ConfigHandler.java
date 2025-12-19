@@ -12,7 +12,7 @@ public class ConfigHandler {
 
         // Add server-closed value to config
         SERVER_CLOSED = builder
-                .comment("Message shown to players when server shuts down")
+                .comment("Message shown to players when server shuts down (Supports Bukkit color codes)")
                 .define("server-closed", "&cServer is closed.");
 
         SPEC = builder.build(); // Build config
