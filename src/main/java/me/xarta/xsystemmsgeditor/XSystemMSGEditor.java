@@ -27,7 +27,8 @@ public class XSystemMSGEditor {
                 "xsystemmsgeditor.toml"
         );
 
-        NeoForge.EVENT_BUS.register(new ServerShutdownHandler());
+        NeoForge.EVENT_BUS.register(new ServerShutdownHandler()); // Register event handler
+
         LOGGER.info("xSystemMSGEditor is on."); // Print success message
     }
 }
