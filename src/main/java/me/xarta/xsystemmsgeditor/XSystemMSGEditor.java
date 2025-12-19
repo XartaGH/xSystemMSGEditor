@@ -10,23 +10,24 @@ import net.neoforged.fml.config.ModConfig;
 import net.neoforged.neoforge.common.NeoForge;
 import org.slf4j.Logger;
 
-@Mod(XSystemMSGEditor.MODID)
+@Mod(XSystemMSGEditor.MODID) // Declare this class as mod's main class
 public class XSystemMSGEditor {
 
-    public static final String MODID = "xsystemmsgeditor";
-    public static final Logger LOGGER = LogUtils.getLogger();
+    public static final String MODID = "xsystemmsgeditor"; // Define modification's ID
+    public static final Logger LOGGER = LogUtils.getLogger(); // Create logger
+
 
     public XSystemMSGEditor(IEventBus modEventBus, ModContainer modContainer) {
-        LOGGER.info("xSystemMSGEditor initializing...");
+        LOGGER.info("xSystemMSGEditor initializing..."); // Print initialization message
 
-        // Регистрируем SERVER-конфиг (как в твоём другом моде)
+        // Register config for the mod
         modContainer.registerConfig(
                 ModConfig.Type.SERVER,
                 ConfigHandler.SPEC,
                 "xsystemmsgeditor.toml"
         );
 
-        // Регистрируем обработчик серверных событий
         NeoForge.EVENT_BUS.register(new ServerShutdownHandler());
+        LOGGER.info("xSystemMSGEditor is on."); // Print success message
     }
 }

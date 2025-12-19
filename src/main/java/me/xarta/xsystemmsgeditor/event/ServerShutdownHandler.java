@@ -9,15 +9,15 @@ public class ServerShutdownHandler {
 
     @SubscribeEvent
     public void onServerStopping(ServerStoppingEvent event) {
-        var server = event.getServer();
+        var server = event.getServer(); // Get server instance
 
-        String raw = ConfigHandler.SERVER_CLOSED.get();
-        String colored = raw.replace("&", "§");
+        String raw = ConfigHandler.SERVER_CLOSED.get(); // Get message from config as raw text
+        String colored = raw.replace("&", "§"); // Replace Bukkit-style coloring with default style
 
-        Component message = Component.literal(colored);
+        Component message = Component.literal(colored); // Create a component
 
         server.getPlayerList().getPlayers().forEach(player ->
-                player.connection.disconnect(message)
+                player.connection.disconnect(message) // Send component to each player
         );
     }
 }
