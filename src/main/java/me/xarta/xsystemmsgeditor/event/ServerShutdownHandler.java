@@ -16,8 +16,8 @@ public class ServerShutdownHandler {
 
         Component message = Component.literal(colored); // Create a component
 
-        server.getPlayerList().getPlayers().forEach(player ->
-                player.connection.disconnect(message) // Send component to each player
+        server.getPlayerList().getPlayers().forEach(
+                player -> player.connection.disconnect(message) // Send component to each player
         );
     }
 }

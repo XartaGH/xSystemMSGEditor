@@ -10,16 +10,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(CommandSourceStack.class)
 public class CommandSourceStackMixin {
 
-    @Inject(
-            method = "sendFailure",
-            at = @At("HEAD"),
-            cancellable = true
-    )
-    private void xsystemmsgeditor$cancelVanillaFailure(
-            Component message,
-            CallbackInfo ci
-    ) {
-        // cancel vanilla error message
-        ci.cancel();
+    @Inject(method = "sendFailure", at = @At("HEAD"), cancellable = true)
+    private void xsystemmsgeditor$cancelVanillaFailure(Component message, CallbackInfo ci) {
+        ci.cancel(); // cancel vanilla error message
     }
+
 }

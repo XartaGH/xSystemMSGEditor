@@ -8,6 +8,7 @@ public class ConfigHandler {
     public static final ModConfigSpec SPEC; // Config object used during registration
     public static final ModConfigSpec.ConfigValue<String> SERVER_CLOSED; // Value of server-closed from config
     public static final ModConfigSpec.ConfigValue<String> UNKNOWN_COMMAND; // Message shown when player types unknown command
+    public static final ModConfigSpec.ConfigValue<String> NO_PERMISSION; // Message shown when player types unknown command
 
     static {
         BUILDER.push("Custom Messages");
@@ -22,7 +23,12 @@ public class ConfigHandler {
                 .comment("Message shown when player types an unknown command (Leave empty to disable)")
                 .define("unknown-command", "&cUnknown command!");
 
+        NO_PERMISSION = BUILDER
+                .comment("Message shown when player has no permission (Leave empty to disable)")
+                .define("no-permission", "&4You have no permission to execute this command");
+
         BUILDER.pop();
         SPEC = BUILDER.build(); // Build config
     }
+
 }
