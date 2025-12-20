@@ -12,9 +12,12 @@ public class ConfigHandler {
     public static final ModConfigSpec.ConfigValue<Boolean> UNKNOWN_COMMAND_ADD_SLASH;
     public static final ModConfigSpec.ConfigValue<String> NO_PERMISSION;
     public static final ModConfigSpec.ConfigValue<Boolean> NO_PERMISSION_ADD_SLASH;
+    public static final ModConfigSpec.ConfigValue<String> SYNTAX_ERROR;
+    public static final ModConfigSpec.ConfigValue<Boolean> SYNTAX_ADD_SLASH;
+
 
     static {
-        BUILDER.push("Custom Messages");
+        BUILDER.push("xSystemMSGEditor Configuration");
         BUILDER.comment("These messages support Bukkit color codes (& -> §) and the %command% placeholder.");
 
         SERVER_CLOSED = BUILDER
@@ -36,6 +39,16 @@ public class ConfigHandler {
         NO_PERMISSION_ADD_SLASH = BUILDER
                 .comment("Whether slash should be added to %command% placeholder in no-permission message")
                 .define("no-permission-add-slash", true);
+
+
+        SYNTAX_ERROR = BUILDER
+                .comment("Message when command syntax is incorrect (leave empty to disable). Use %syntax% for usage.")
+                .define("syntax-error", "&cInvalid syntax. Correct: %syntax%");
+
+        SYNTAX_ADD_SLASH = BUILDER
+                .comment("Add leading slash to %syntax% when possible")
+                .define("syntax-add-slash", true);
+
 
         BUILDER.pop();
         SPEC = BUILDER.build();
