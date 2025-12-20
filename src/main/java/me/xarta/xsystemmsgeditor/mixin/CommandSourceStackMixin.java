@@ -14,5 +14,4 @@ public class CommandSourceStackMixin {
     private void xsystemmsgeditor$cancelVanillaFailure(Component message, CallbackInfo ci) {
         ci.cancel(); // cancel vanilla error message
     }
-
 }
