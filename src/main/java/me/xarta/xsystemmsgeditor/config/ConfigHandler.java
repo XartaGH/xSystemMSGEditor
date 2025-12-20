@@ -16,7 +16,7 @@ public class ConfigHandler {
         // Add server-closed value to config
         SERVER_CLOSED = BUILDER
                 .comment("Message shown to players when server shuts down")
-                .define("server-closed", "&cServer is closed.");
+                .define("server-closed", "&cServer is closed");
 
         UNKNOWN_COMMAND = BUILDER
                 .comment("Message shown when player types an unknown command (Leave empty to disable)")
