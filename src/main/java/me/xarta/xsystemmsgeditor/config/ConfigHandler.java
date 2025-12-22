@@ -83,12 +83,12 @@ public class ConfigHandler {
                 .define("goal-tooltip", true);
 
         TOOLTIP_HEADING_COLOR = BUILDER
-                .comment("Tooltip's heading text color, set to DEPENDS-ON-TYPE for the same as in advancement's message")
-                .define("tooltip-heading-color", "DEPENDS-ON-TYPE");
+                .comment("Tooltip's heading text color, %parent-color% is the same as in advancement's message")
+                .define("tooltip-heading-color", "%parent-color%");
 
         TOOLTIP_BODY_COLOR = BUILDER
-                .comment("Tooltip's body text color, set to DEPENDS-ON-TYPE for the same as in advancement's message")
-                .define("tooltip-body-color", "DEPENDS-ON-TYPE");
+                .comment("Tooltip's body text color, %parent-color% is the same as in advancement's message")
+                .define("tooltip-body-color", "%parent-color%");
 
         BUILDER.pop();
         SPEC = BUILDER.build();

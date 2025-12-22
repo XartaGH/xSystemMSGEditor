@@ -48,8 +48,8 @@ public class CommandsHandler {
         }
 
         final boolean hasExceptions = hasParsingExceptions(parse);
-        final boolean hasTrailing = parse.getReader().canRead();    // остались непрочитанные символы
-        final boolean notExecutable = (ctx.getCommand() == null);   // нет executes => неполная команда
+        final boolean hasTrailing = parse.getReader().canRead();
+        final boolean notExecutable = (ctx.getCommand() == null);
         if (hasExceptions || hasTrailing || notExecutable) {
             final LiteralCommandNode<CommandSourceStack> anchor =
                     (tr.lastMatchedLiteral() != null) ? tr.lastMatchedLiteral() : findLiteral(root, tokens[0]);
@@ -93,8 +93,6 @@ public class CommandsHandler {
 
         return new TraversalResult(lastMatched, matched, deniedAt);
     }
-
-    // ========================= Handlers =========================
 
     private static void handleUnknown(String input,
                                       CommandSourceStack source,
