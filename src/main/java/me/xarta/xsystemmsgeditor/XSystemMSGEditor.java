@@ -3,6 +3,7 @@ package me.xarta.xsystemmsgeditor;
 import com.mojang.logging.LogUtils;
 import me.xarta.xsystemmsgeditor.config.ConfigHandler;
 import me.xarta.xsystemmsgeditor.event.AdvancementsHandler;
+import me.xarta.xsystemmsgeditor.event.DeathsHandler;
 import me.xarta.xsystemmsgeditor.event.ServerShutdownHandler;
 import me.xarta.xsystemmsgeditor.event.CommandsHandler;
 import net.neoforged.bus.api.IEventBus;
@@ -20,7 +21,7 @@ public class XSystemMSGEditor {
 
 
     public XSystemMSGEditor(IEventBus modEventBus, ModContainer modContainer) {
-        LOGGER.info("xSystemMSGEditor initializing..."); // Print initialization message
+        LOGGER.info("xSystemMSGEditor is initializing..."); // Print initialization message
 
         // Register config for the mod
         modContainer.registerConfig(
@@ -30,8 +31,13 @@ public class XSystemMSGEditor {
         );
 
         NeoForge.EVENT_BUS.register(new ServerShutdownHandler()); // Register server closed event handler
+        LOGGER.info("Server Shutdowns Handler is on.");
         NeoForge.EVENT_BUS.register(new CommandsHandler()); // Register commands events handler
-        NeoForge.EVENT_BUS.register(new AdvancementsHandler());  // Register advancements events handler
+        LOGGER.info("Commands Handler is on.");
+        NeoForge.EVENT_BUS.register(new AdvancementsHandler()); // Register advancements events handler
+        LOGGER.info("Advancements Handler is on.");
+        NeoForge.EVENT_BUS.register(new DeathsHandler()); // Register deaths events handler
+        LOGGER.info("Deaths Handler is on.");
         LOGGER.info("xSystemMSGEditor is on."); // Print success message
     }
 

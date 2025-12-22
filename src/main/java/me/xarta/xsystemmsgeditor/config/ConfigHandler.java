@@ -21,6 +21,9 @@ public class ConfigHandler {
     public static final ModConfigSpec.ConfigValue<Boolean> GOAL_TOOLTIP;
     public static final ModConfigSpec.ConfigValue<String> TOOLTIP_HEADING_COLOR;
     public static final ModConfigSpec.ConfigValue<String> TOOLTIP_BODY_COLOR;
+    public static final ModConfigSpec.ConfigValue<String> DEATH_MESSAGE;
+    public static final ModConfigSpec.ConfigValue<Boolean> DEATH_TOOLTIP;
+    public static final ModConfigSpec.ConfigValue<String> DEATH_TOOLTIP_CONTENTS;
 
     static {
         BUILDER.push("xSystemMSGEditor Configuration");
@@ -45,7 +48,6 @@ public class ConfigHandler {
         NO_PERMISSION_ADD_SLASH = BUILDER
                 .comment("Whether slash should be added to %command% placeholder in no-permission message")
                 .define("no-permission-add-slash", true);
-
 
         SYNTAX_ERROR = BUILDER
                 .comment("Message when command syntax is incorrect (leave empty to disable). Use %syntax% for usage.")
@@ -89,6 +91,18 @@ public class ConfigHandler {
         TOOLTIP_BODY_COLOR = BUILDER
                 .comment("Tooltip's body text color, %parent-color% is the same as in advancement's message")
                 .define("tooltip-body-color", "%parent-color%");
+
+        DEATH_MESSAGE = BUILDER
+                .comment("Message shown when player dies (%reason% has a leading space)")
+                .define("death-message", "%player%&c%reason%");
+
+        DEATH_TOOLTIP = BUILDER
+                .comment("Show tooltip when hovering on death message (i.e. %player% died and when player hovers they can see a full reason)")
+                .define("death-tooltip", true);
+
+        DEATH_TOOLTIP_CONTENTS = BUILDER
+                .comment("Death message tooltip's content (%reason% has a leading space)")
+                .define("death-tooltip-contents", "&7Reason:&c%reason%");
 
         BUILDER.pop();
         SPEC = BUILDER.build();

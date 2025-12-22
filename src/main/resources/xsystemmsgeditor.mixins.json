@@ -5,7 +5,8 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "CommandSourceStackMixin",
-    "DisplayInfoMixin"
+    "DisplayInfoMixin",
+    "ServerPlayerMixin"
   ],
   "injectors": {
     "defaultRequire": 1
