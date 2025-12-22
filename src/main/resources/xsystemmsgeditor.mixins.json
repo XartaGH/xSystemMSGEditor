@@ -4,7 +4,8 @@
   "package": "me.xarta.xsystemmsgeditor.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "CommandSourceStackMixin"
+    "CommandSourceStackMixin",
+    "DisplayInfoMixin"
   ],
   "injectors": {
     "defaultRequire": 1

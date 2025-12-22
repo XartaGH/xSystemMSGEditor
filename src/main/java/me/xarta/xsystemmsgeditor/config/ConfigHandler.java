@@ -1,4 +1,3 @@
-
 package me.xarta.xsystemmsgeditor.config;
 
 import net.neoforged.neoforge.common.ModConfigSpec;
@@ -14,7 +13,14 @@ public class ConfigHandler {
     public static final ModConfigSpec.ConfigValue<Boolean> NO_PERMISSION_ADD_SLASH;
     public static final ModConfigSpec.ConfigValue<String> SYNTAX_ERROR;
     public static final ModConfigSpec.ConfigValue<Boolean> SYNTAX_ADD_SLASH;
-
+    public static final ModConfigSpec.ConfigValue<String> ADVANCEMENT_FORMAT;
+    public static final ModConfigSpec.ConfigValue<Boolean> ADVANCEMENT_TOOLTIP;
+    public static final ModConfigSpec.ConfigValue<String> CHALLENGE_FORMAT;
+    public static final ModConfigSpec.ConfigValue<Boolean> CHALLENGE_TOOLTIP;
+    public static final ModConfigSpec.ConfigValue<String> GOAL_FORMAT;
+    public static final ModConfigSpec.ConfigValue<Boolean> GOAL_TOOLTIP;
+    public static final ModConfigSpec.ConfigValue<String> TOOLTIP_HEADING_COLOR;
+    public static final ModConfigSpec.ConfigValue<String> TOOLTIP_BODY_COLOR;
 
     static {
         BUILDER.push("xSystemMSGEditor Configuration");
@@ -49,6 +55,40 @@ public class ConfigHandler {
                 .comment("Add leading slash to %syntax% when possible")
                 .define("syntax-add-slash", true);
 
+        BUILDER.comment("Use %player% for player name and %advancement%/%challenge%/%goal% for advancement title",
+                "Color codes: &0-9, &a-f for colors, &l for bold, &o for italic, &r for reset");
+
+        ADVANCEMENT_FORMAT = BUILDER
+                .comment("Format for regular task advancements")
+                .define("advancement-format", "&a%player% &7achieved advancement &a%advancement%");
+
+        ADVANCEMENT_TOOLTIP = BUILDER
+                .comment("Show tooltip when hovering on advancement")
+                .define("advancement-tooltip", true);
+
+        CHALLENGE_FORMAT = BUILDER
+                .comment("Format for challenge advancements")
+                .define("challenge-format", "&5%player% &7completed challenge &5%challenge%");
+
+        CHALLENGE_TOOLTIP = BUILDER
+                .comment("Show tooltip when hovering on challenge")
+                .define("challenge-tooltip", true);
+
+        GOAL_FORMAT = BUILDER
+                .comment("Format for goal advancements")
+                .define("goal-format", "&e%player% &7reached goal &e%goal%");
+
+        GOAL_TOOLTIP = BUILDER
+                .comment("Show tooltip when hovering on goal")
+                .define("goal-tooltip", true);
+
+        TOOLTIP_HEADING_COLOR = BUILDER
+                .comment("Tooltip's heading text color, set to DEPENDS-ON-TYPE for the same as in advancement's message")
+                .define("tooltip-heading-color", "DEPENDS-ON-TYPE");
+
+        TOOLTIP_BODY_COLOR = BUILDER
+                .comment("Tooltip's body text color, set to DEPENDS-ON-TYPE for the same as in advancement's message")
+                .define("tooltip-body-color", "DEPENDS-ON-TYPE");
 
         BUILDER.pop();
         SPEC = BUILDER.build();
